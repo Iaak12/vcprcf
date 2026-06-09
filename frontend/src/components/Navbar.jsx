@@ -41,7 +41,7 @@ export default function Navbar() {
           <Link to="/" className="flex items-center gap-3 group">
             <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-emerald-500 group-hover:border-gold-400 transition-colors duration-300 shadow-emerald bg-white">
               <img
-                src="/logo.png"
+                src="/logo.jpeg"
                 alt="VCPCRF Logo"
                 className="w-full h-full object-contain p-0.5"
                 onError={(e) => {

@@ -83,7 +83,7 @@ export default function HomePage() {
           <div className="flex justify-center mb-8">
             <div className="relative">
               <div className="w-36 h-36 rounded-full border-4 border-emerald-500/50 overflow-hidden shadow-2xl shadow-emerald-500/20 animate-float bg-white">
-                <img src="/logo.png" alt="VCPCRF" className="w-full h-full object-contain p-2"
+                <img src="/logo.jpeg" alt="VCPCRF" className="w-full h-full object-contain p-2"
                   onError={(e) => { e.target.onerror = null; e.target.style.display='none'; e.target.parentNode.innerHTML=`<div class="w-full h-full flex items-center justify-center bg-forest-800 text-5xl font-bold text-emerald-400 font-serif">V</div>`; }} />
               </div>
               <div className="absolute inset-0 rounded-full border-4 border-gold-400/20 animate-ping" style={{ animationDuration: '3s' }} />

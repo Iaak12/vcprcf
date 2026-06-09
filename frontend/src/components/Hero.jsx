@@ -86,7 +86,7 @@ export default function Hero() {
             <div className="relative">
               <div className="w-36 h-36 rounded-full border-4 border-emerald-500/50 overflow-hidden shadow-2xl shadow-emerald-500/20 animate-float">
                 <img
-                  src="/logo.png"
+                  src="/logo.jpeg"
                   alt="VCPCRF Logo"
                   className="w-full h-full object-contain bg-white p-2"
                   onError={(e) => {
