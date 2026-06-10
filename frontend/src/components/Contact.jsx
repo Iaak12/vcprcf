@@ -53,15 +53,39 @@ export default function Contact({ hideBanner }) {
     }, 1200);
   };
 
-  const handleSubmit = (e) => {
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!captchaVerified) return;
     setLoading(true);
-    setTimeout(() => {
+    setError('');
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY',
+          name: form.name,
+          email: form.email,
+          subject: `VCPCRF Contact: ${form.subject}`,
+          message: form.message,
+          from_name: 'VCPCRF Website',
+        }),
+      });
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+        setCaptchaVerified(false);
+        setForm({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Network error. Please check your connection.');
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-      setCaptchaVerified(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -246,6 +270,11 @@ export default function Contact({ hideBanner }) {
                         <span className="text-gray-600 text-[9px] leading-tight text-center mt-0.5">reCAPTCHA<br/>Privacy - Terms</span>
                       </div>
                     </div>
+                    {error && (
+                      <p className="text-red-400 text-sm text-center bg-red-500/10 border border-red-500/20 rounded-lg py-2 px-4">
+                        {error}
+                      </p>
+                    )}
                     <button
                       type="submit"
                       disabled={loading || !captchaVerified}

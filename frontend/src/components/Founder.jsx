@@ -60,7 +60,7 @@ export default function Founder({ hideBanner }) {
               <div className="w-36 h-36 mx-auto mb-6 relative">
                 <div className="w-full h-full rounded-full bg-gradient-to-br from-emerald-700 to-forest-800 border-4 border-gold-400/50 flex items-center justify-center shadow-gold overflow-hidden">
                   <img
-                    src="/founder.jpg"
+                    src="/Vd BP.webp"
                     alt="Vaidya Balendu Prakash"
                     className="w-full h-full object-cover"
                     onError={(e) => {
