@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, Phone, Mail, Globe, Send, CheckCircle } from 'lucide-react';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const contactInfo = [
   {
@@ -32,6 +33,8 @@ export default function Contact({ hideBanner }) {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const recaptchaRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,10 +47,13 @@ export default function Contact({ hideBanner }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!captchaVerified) return;
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
+      recaptchaRef.current?.reset();
+      setCaptchaVerified(false);
     }, 1500);
   };
 
@@ -203,9 +209,19 @@ export default function Contact({ hideBanner }) {
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-emerald-500/50 focus:bg-white/8 transition-all duration-300 resize-none"
                       />
                     </div>
+                    {/* reCAPTCHA */}
+                    <div className="flex justify-center">
+                      <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                        theme="dark"
+                        onChange={(token) => setCaptchaVerified(!!token)}
+                        onExpired={() => setCaptchaVerified(false)}
+                      />
+                    </div>
                     <button
                       type="submit"
-                      disabled={loading}
+                      disabled={loading || !captchaVerified}
                       className="btn-primary w-full flex items-center justify-center gap-2 text-sm disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {loading ? (
