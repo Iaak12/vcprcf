@@ -152,7 +152,7 @@ export default function Achievements({ hideBanner }) {
                 <Star size={18} className="text-gold-400" />
                 Events Organized
               </h3>
-              <div className="relative pl-6 border-l border-emerald-900">
+              <div className="relative pl-6">
                 {events.map((ev, i) => (
                   <div key={i} className="timeline-item relative mb-4 last:mb-0">
                     <span className="text-gold-400 font-bold text-xs font-display tracking-wider">{ev.year}</span>

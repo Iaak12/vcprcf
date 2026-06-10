@@ -66,7 +66,7 @@ export default function Contact({ hideBanner }) {
             <div className="divider-gold reveal" />
           </div>
         )}
-        <p className="text-gray-300 max-w-2xl mx-auto reveal">
+        <p className="text-gray-300 max-w-2xl mx-auto text-center mb-12 reveal">
           For research collaborations, patient consultations, media inquiries or general information, we'd love to hear from you.
         </p>
 
