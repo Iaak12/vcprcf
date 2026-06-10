@@ -216,6 +216,18 @@ export default function Contact({ hideBanner }) {
                       {loading ? 'Sending...' : 'Send Message'}
                     </button>
                   </form>
+                  {/* Map */}
+                  <div className="mt-8 rounded-xl overflow-hidden border border-white/10 h-64 relative">
+                    <iframe
+                      title="Location Map"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(100%)' }}
+                      loading="lazy"
+                      allowFullScreen
+                      src="https://maps.google.com/maps?q=Prakash%20Villa,%20NH%2074,%20Danpur%20Area,%20Rudrapur,%20Uttarakhand&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    />
+                  </div>
                 </>
               )}
             </div>
