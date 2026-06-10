@@ -144,7 +144,7 @@ export default function Founder({ hideBanner }) {
                 <GraduationCap size={20} className="text-emerald-400" />
                 Positions Held
               </h4>
-              <div className="relative pl-8 border-l-2 border-emerald-900">
+              <div className="relative pl-8">
                 {positions.slice(0, 6).map((pos, i) => (
                   <div key={i} className="timeline-item relative mb-4 last:mb-0">
                     <p className="text-gold-400 text-xs font-display font-semibold tracking-wider mb-0.5">{pos.period}</p>
@@ -162,7 +162,7 @@ export default function Founder({ hideBanner }) {
               >
                 + View more positions
               </button>
-              <div className="extra-positions hidden mt-4 relative pl-8 border-l-2 border-emerald-900">
+              <div className="extra-positions hidden mt-4 relative pl-8">
                 {positions.slice(6).map((pos, i) => (
                   <div key={i} className="timeline-item relative mb-4 last:mb-0">
                     <p className="text-gold-400 text-xs font-display font-semibold tracking-wider mb-0.5">{pos.period}</p>
