@@ -79,9 +79,14 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="hidden xl:block">
-            <Link to="/contact" className="btn-primary text-sm py-2.5 px-6">
+            <a
+              href="https://wa.me/919837028544"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary text-sm py-2.5 px-6"
+            >
               Get in Touch
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Button */}
@@ -112,9 +117,14 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
-          <Link to="/contact" className="btn-primary block text-center mt-4 text-sm py-2.5">
+          <a
+            href="https://wa.me/919837028544"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary block text-center mt-4 text-sm py-2.5"
+          >
             Get in Touch
-          </Link>
+          </a>
         </div>
       </div>
     </nav>
