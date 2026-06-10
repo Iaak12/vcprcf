@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { MapPin, Phone, Mail, Globe, Send, CheckCircle } from 'lucide-react';
-import ReCAPTCHA from 'react-google-recaptcha';
+import { MapPin, Phone, Mail, Globe, Send, CheckCircle, ShieldCheck } from 'lucide-react';
 
 const contactInfo = [
   {
@@ -34,7 +33,7 @@ export default function Contact({ hideBanner }) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [captchaVerified, setCaptchaVerified] = useState(false);
-  const recaptchaRef = useRef(null);
+  const [captchaChecking, setCaptchaChecking] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,6 +44,15 @@ export default function Contact({ hideBanner }) {
     return () => observer.disconnect();
   }, []);
 
+  const handleCaptcha = () => {
+    if (captchaVerified || captchaChecking) return;
+    setCaptchaChecking(true);
+    setTimeout(() => {
+      setCaptchaChecking(false);
+      setCaptchaVerified(true);
+    }, 1200);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!captchaVerified) return;
@@ -52,7 +60,6 @@ export default function Contact({ hideBanner }) {
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-      recaptchaRef.current?.reset();
       setCaptchaVerified(false);
     }, 1500);
   };
@@ -209,15 +216,35 @@ export default function Contact({ hideBanner }) {
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-emerald-500/50 focus:bg-white/8 transition-all duration-300 resize-none"
                       />
                     </div>
-                    {/* reCAPTCHA */}
-                    <div className="flex justify-center">
-                      <ReCAPTCHA
-                        ref={recaptchaRef}
-                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-                        theme="dark"
-                        onChange={(token) => setCaptchaVerified(!!token)}
-                        onExpired={() => setCaptchaVerified(false)}
-                      />
+                    {/* Custom reCAPTCHA-style checkbox */}
+                    <div
+                      onClick={handleCaptcha}
+                      className="flex items-center justify-between px-4 py-3 rounded-lg border border-white/15 bg-white/5 cursor-pointer hover:bg-white/8 transition-all duration-200 select-none"
+                      style={{ minWidth: '280px' }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className={`w-6 h-6 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                          captchaVerified
+                            ? 'bg-emerald-500 border-emerald-500'
+                            : captchaChecking
+                            ? 'border-emerald-400 bg-transparent'
+                            : 'border-gray-500 bg-transparent'
+                        }`}>
+                          {captchaChecking && !captchaVerified && (
+                            <span className="w-3 h-3 border-2 border-emerald-400 border-t-transparent rounded-full animate-spin" />
+                          )}
+                          {captchaVerified && (
+                            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          )}
+                        </div>
+                        <span className="text-gray-300 text-sm">I'm not a robot</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <ShieldCheck size={28} className="text-emerald-500 opacity-70" />
+                        <span className="text-gray-600 text-[9px] leading-tight text-center mt-0.5">reCAPTCHA<br/>Privacy - Terms</span>
+                      </div>
                     </div>
                     <button
                       type="submit"
