@@ -155,20 +155,22 @@ export default function Research({ hideBanner }) {
           {areas.map((area, i) => {
             const isExpanded = expanded === i;
             const colorMap = {
-              emerald: { icon: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20', hover: 'hover:border-emerald-500/40' },
-              gold: { icon: 'bg-gold-500/10 text-gold-400 border-gold-500/20', hover: 'hover:border-gold-500/40' },
+              emerald: { icon: 'bg-gradient-to-br from-emerald-500/10 to-emerald-900/30 text-emerald-400 border-emerald-500/20', hover: 'hover:border-emerald-500/50 hover:shadow-glow', glow: 'bg-emerald-500/20' },
+              gold: { icon: 'bg-gradient-to-br from-gold-500/10 to-gold-900/30 text-gold-400 border-gold-500/20', hover: 'hover:border-gold-500/50 hover:shadow-gold', glow: 'bg-gold-500/20' },
             };
             const c = colorMap[area.color];
             return (
               <div
                 key={i}
-                className={`glass-card p-6 reveal ${c.hover} transition-all duration-500 cursor-pointer group`}
+                className={`glass-card p-8 reveal ${c.hover} hover:-translate-y-2 transition-all duration-500 cursor-pointer group relative overflow-hidden`}
                 style={{ transitionDelay: `${(i % 3) * 100}ms` }}
                 onClick={() => setExpanded(isExpanded ? null : i)}
               >
+                <div className={`absolute -top-32 -right-32 w-64 h-64 ${c.glow} rounded-full blur-3xl group-hover:opacity-100 transition-opacity duration-700 opacity-0`} />
+                <div className="relative z-10">
                 {/* Top row */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className={`w-14 h-14 rounded-2xl ${c.icon} border flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                <div className="flex items-start justify-between mb-5">
+                  <div className={`w-16 h-16 rounded-2xl ${c.icon} border flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-inner`}>
                     {area.icon}
                   </div>
                   <div className="flex flex-col items-end gap-2">
@@ -178,9 +180,9 @@ export default function Research({ hideBanner }) {
                   </div>
                 </div>
 
-                <p className="text-xs text-gray-500 font-display tracking-widest uppercase mb-1">{area.tag}</p>
-                <h3 className="font-serif text-xl font-bold text-white mb-3">{area.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">{area.short}</p>
+                <p className="text-xs text-gray-400 font-display tracking-widest uppercase mb-2 font-medium">{area.tag}</p>
+                <h3 className="font-serif text-2xl font-bold text-white mb-3">{area.title}</h3>
+                <p className="text-gray-300 text-sm leading-relaxed mb-5">{area.short}</p>
 
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-gray-500 font-display">{area.period}</span>
@@ -193,17 +195,18 @@ export default function Research({ hideBanner }) {
                 </div>
 
                 {/* Expanded Details */}
-                <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? 'max-h-80 mt-4' : 'max-h-0'}`}>
-                  <div className="border-t border-white/10 pt-4">
-                    <ul className="space-y-2">
+                <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? 'max-h-96 mt-5' : 'max-h-0'}`}>
+                  <div className="border-t border-white/10 pt-5">
+                    <ul className="space-y-3">
                       {area.details.map((d, j) => (
-                        <li key={j} className="flex items-start gap-2 text-sm text-gray-300">
-                          <FlaskConical size={13} className={`mt-0.5 flex-shrink-0 ${area.color === 'emerald' ? 'text-emerald-400' : 'text-gold-400'}`} />
-                          {d}
+                        <li key={j} className="flex items-start gap-3 text-sm text-gray-200 font-medium">
+                          <FlaskConical size={16} className={`mt-0.5 flex-shrink-0 ${area.color === 'emerald' ? 'text-emerald-400' : 'text-gold-400'}`} />
+                          <span className="leading-relaxed">{d}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
+                </div>
                 </div>
               </div>
             );
@@ -211,21 +214,28 @@ export default function Research({ hideBanner }) {
         </div>
 
         {/* Current Projects Banner */}
-        <div className="mt-16 glass-card-dark p-8 md:p-10 reveal">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-            <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0">
-              <FlaskConical size={32} />
+        <div className="mt-16 glass-card-dark p-8 md:p-12 reveal relative overflow-hidden group hover:border-emerald-500/30 hover:shadow-glow transition-all duration-500">
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-emerald-500/5 to-emerald-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-8 relative z-10">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-emerald-900/30 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-500 shadow-inner group-hover:shadow-glow">
+              <FlaskConical size={36} />
             </div>
             <div className="flex-1">
-              <h3 className="font-serif text-xl font-bold text-white mb-2">Ongoing Research Projects (2025 onwards)</h3>
-              <div className="grid md:grid-cols-2 gap-4 mt-4">
-                <div className="p-4 rounded-xl bg-white/5 border border-emerald-500/20">
-                  <p className="text-emerald-400 text-xs font-display font-semibold tracking-wider uppercase mb-2">UPES Collaboration</p>
-                  <p className="text-gray-300 text-sm">Comprehensive Investigation of AMAR Formulation for Pancreatitis — analytical characterization, optimization & experimental validation.</p>
+              <h3 className="font-serif text-2xl font-bold text-white mb-3">Ongoing Research Projects <span className="text-emerald-400 font-display text-sm ml-2 tracking-widest block sm:inline mt-2 sm:mt-0">(2025 onwards)</span></h3>
+              <div className="grid md:grid-cols-2 gap-5 mt-5">
+                <div className="p-5 rounded-xl bg-white/5 border border-white/10 hover:border-emerald-500/40 hover:bg-emerald-900/20 transition-colors duration-300 shadow-lg group/card">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <p className="text-emerald-400 text-xs font-display font-semibold tracking-wider uppercase">UPES Collaboration</p>
+                  </div>
+                  <p className="text-gray-300 text-sm leading-relaxed font-medium group-hover/card:text-gray-200 transition-colors">Comprehensive Investigation of AMAR Formulation for Pancreatitis — analytical characterization, optimization & experimental validation.</p>
                 </div>
-                <div className="p-4 rounded-xl bg-white/5 border border-gold-500/20">
-                  <p className="text-gold-400 text-xs font-display font-semibold tracking-wider uppercase mb-2">CCRAS Supported (2019–present)</p>
-                  <p className="text-gray-300 text-sm">Development of Metal-Based Formulation for Acute Promyelocytic Leukemia (APML) — building on pioneering clinical evidence.</p>
+                <div className="p-5 rounded-xl bg-white/5 border border-white/10 hover:border-gold-500/40 hover:bg-gold-900/20 transition-colors duration-300 shadow-lg group/card">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse" />
+                    <p className="text-gold-400 text-xs font-display font-semibold tracking-wider uppercase">CCRAS Supported</p>
+                  </div>
+                  <p className="text-gray-300 text-sm leading-relaxed font-medium group-hover/card:text-gray-200 transition-colors">Development of Metal-Based Formulation for Acute Promyelocytic Leukemia (APML) — building on pioneering clinical evidence.</p>
                 </div>
               </div>
             </div>
