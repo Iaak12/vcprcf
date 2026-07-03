@@ -110,16 +110,17 @@ export default function Contact({ hideBanner }) {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left — Contact Info */}
           <div className="reveal-left">
-            <div className="space-y-5 mb-10">
+            <div className="space-y-6 mb-12">
               {contactInfo.map((info, i) => (
-                <div key={i} className="glass-card p-5 flex items-start gap-4 hover:border-emerald-500/30 transition-all duration-300 group">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0 group-hover:bg-emerald-500/20 transition-colors">
+                <div key={i} className="glass-card p-6 flex items-start gap-5 hover:border-emerald-500/40 hover:-translate-y-1 hover:shadow-glow transition-all duration-300 group relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-emerald-500/5 to-emerald-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-emerald-900/30 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300 shadow-inner group-hover:shadow-glow relative z-10">
                     {info.icon}
                   </div>
-                  <div>
-                    <p className="text-gray-500 text-xs font-display uppercase tracking-widest mb-1">{info.label}</p>
+                  <div className="relative z-10 pt-1 flex-1">
+                    <p className="text-gray-400 text-xs font-display uppercase tracking-widest mb-1.5 font-medium">{info.label}</p>
                     {info.href ? (
-                      <a href={info.href} className="text-white hover:text-emerald-400 transition-colors font-medium">
+                      <a href={info.href} className="text-white hover:text-emerald-300 transition-colors font-medium text-base">
                         {info.lines[0]}
                       </a>
                     ) : (
@@ -133,42 +134,49 @@ export default function Contact({ hideBanner }) {
             </div>
 
             {/* Legal Info */}
-            <div className="glass-card-dark p-6">
-              <h4 className="font-serif text-lg font-bold text-white mb-4">Foundation Details</h4>
-              <div className="space-y-2">
-                {[
-                  { label: 'NGO Darpan Unique ID', value: 'UA/2017/0115005' },
-                  { label: 'Registration No.', value: '6759/4' },
-                  { label: 'PAN', value: 'AAATV1805G' },
-                  { label: 'SIRO Accreditation', value: 'Dept. of Scientific Industrial Research, Govt. of India' },
-                  { label: 'Established', value: '1988, Dehradun, Uttarakhand' },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 py-2 border-b border-white/5 last:border-0">
-                    <span className="text-gray-500 text-xs font-display tracking-wider min-w-[140px]">{item.label}</span>
-                    <span className="text-emerald-300 text-sm font-medium">{item.value}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="glass-card-dark p-8 relative overflow-hidden group/legal hover:border-gold-500/30 hover:shadow-gold transition-all duration-500">
+              <div className="absolute inset-0 bg-gradient-to-r from-gold-500/0 via-gold-500/5 to-gold-500/0 translate-x-[-100%] group-hover/legal:translate-x-[100%] transition-transform duration-1000" />
+              <div className="relative z-10">
+                <h4 className="font-serif text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                  <ShieldCheck size={22} className="text-gold-400" /> Foundation Details
+                </h4>
+                <div className="space-y-3">
+                  {[
+                    { label: 'NGO Darpan ID', value: 'UA/2017/0115005' },
+                    { label: 'Registration No.', value: '6759/4' },
+                    { label: 'PAN', value: 'AAATV1805G' },
+                    { label: 'SIRO Accreditation', value: 'Dept. of Scientific Industrial Research, Govt. of India' },
+                    { label: 'Established', value: '1988, Dehradun, Uttarakhand' },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-4 py-3 border-b border-white/5 last:border-0 hover:bg-white/5 px-3 -mx-3 rounded-lg transition-colors">
+                      <span className="text-gray-400 text-xs font-display tracking-wider min-w-[140px] pt-0.5">{item.label}</span>
+                      <span className="text-emerald-300 text-sm font-medium leading-relaxed">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
 
-              {/* ResearchGate */}
-              <div className="mt-5 pt-4 border-t border-white/10">
-                <a
-                  href="https://www.researchgate.net/profile/Vaidya-Prakash"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-medium group"
-                >
-                  <Globe size={16} />
-                  <span>ResearchGate Profile</span>
-                  <span className="text-xs text-gray-500 group-hover:text-gray-400">↗</span>
-                </a>
+                {/* ResearchGate */}
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <a
+                    href="https://www.researchgate.net/profile/Vaidya-Prakash"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 text-gold-400 hover:text-gold-300 transition-colors text-sm font-bold tracking-wide uppercase bg-gold-500/10 hover:bg-gold-500/20 py-3 rounded-xl border border-gold-500/20"
+                  >
+                    <Globe size={18} />
+                    <span>View ResearchGate Profile</span>
+                    <span className="text-xs text-gold-500 ml-1">↗</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Right — Contact Form */}
           <div className="reveal-right">
-            <div className="glass-card p-8 h-full">
+            <div className="glass-card p-8 md:p-10 h-full relative overflow-hidden group/form hover:border-emerald-500/30 hover:shadow-glow transition-all duration-500">
+              <div className="absolute inset-0 bg-gradient-to-bl from-emerald-500/0 via-emerald-500/5 to-emerald-500/0 opacity-0 group-hover/form:opacity-100 transition-opacity duration-1000 pointer-events-none" />
+              <div className="relative z-10 h-full flex flex-col">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center h-full text-center py-16">
                   <div className="w-20 h-20 rounded-full bg-emerald-500/10 border-2 border-emerald-500 flex items-center justify-center mb-6 animate-pulse-slow">
@@ -289,19 +297,21 @@ export default function Contact({ hideBanner }) {
                     </button>
                   </form>
                   {/* Map */}
-                  <div className="mt-8 rounded-xl overflow-hidden border border-white/10 h-64 relative">
+                  <div className="mt-8 rounded-xl overflow-hidden border border-white/10 h-64 relative group/map hover:border-emerald-500/30 transition-colors">
                     <iframe
                       title="Location Map"
                       width="100%"
                       height="100%"
-                      style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(100%)' }}
+                      style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(110%)' }}
                       loading="lazy"
                       allowFullScreen
+                      className="group-hover/map:opacity-90 transition-opacity"
                       src="https://maps.google.com/maps?q=Prakash%20Villa,%20NH%2074,%20Danpur%20Area,%20Rudrapur,%20Uttarakhand&t=&z=14&ie=UTF8&iwloc=&output=embed"
                     />
                   </div>
                 </>
               )}
+              </div>
             </div>
           </div>
         </div>
