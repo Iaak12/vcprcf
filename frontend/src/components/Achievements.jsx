@@ -74,15 +74,18 @@ export default function Achievements({ hideBanner }) {
         )}
 
         {/* Top Highlights */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {achievements.map((a, i) => (
-            <div key={i} className="glass-card p-6 text-center reveal hover:border-gold-500/30 hover:-translate-y-2 transition-all duration-500 group"
+            <div key={i} className="glass-card p-8 text-center reveal hover:border-gold-500/50 hover:-translate-y-2 hover:shadow-gold transition-all duration-500 group relative overflow-hidden"
               style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                {a.icon}
+              <div className="absolute -top-16 -right-16 w-32 h-32 bg-gold-500/10 rounded-full blur-3xl group-hover:bg-gold-500/20 transition-all duration-500" />
+              <div className="relative z-10">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-500/10 to-gold-900/30 border border-gold-500/20 flex items-center justify-center text-gold-400 mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-inner group-hover:shadow-gold">
+                  {a.icon}
+                </div>
+                <h4 className="font-semibold text-white mb-3 font-display text-base">{a.label}</h4>
+                <p className="text-gray-400 text-sm leading-relaxed">{a.desc}</p>
               </div>
-              <h4 className="font-semibold text-white mb-2 font-display text-sm">{a.label}</h4>
-              <p className="text-gray-400 text-xs leading-relaxed">{a.desc}</p>
             </div>
           ))}
         </div>
@@ -95,26 +98,27 @@ export default function Achievements({ hideBanner }) {
               Awards & Honors
             </h3>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
               {awards.map((award, i) => (
                 <div
                   key={i}
-                  className={`flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:-translate-x-1 ${
+                  className={`flex items-start gap-5 p-5 rounded-2xl transition-all duration-300 hover:-translate-x-1 shadow-lg group relative overflow-hidden ${
                     award.highlight
-                      ? 'bg-gold-500/10 border border-gold-500/30'
-                      : 'bg-white/3 border border-white/5 hover:border-emerald-500/20'
+                      ? 'bg-gradient-to-r from-gold-500/10 to-transparent border border-gold-500/30 hover:border-gold-500/50 hover:shadow-gold'
+                      : 'bg-white/5 border border-white/10 hover:border-emerald-500/30 hover:shadow-glow'
                   }`}
                 >
-                  <div className={`text-xs font-display font-bold px-2.5 py-1 rounded-lg flex-shrink-0 ${
-                    award.highlight ? 'bg-gold-400 text-forest-900' : 'bg-emerald-900/50 text-emerald-400'
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-white/5 to-emerald-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                  <div className={`relative z-10 text-xs font-display font-bold px-3 py-1.5 rounded-xl flex-shrink-0 shadow-inner ${
+                    award.highlight ? 'bg-gold-400 text-forest-900' : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/20'
                   }`}>
                     {award.year}
                   </div>
-                  <div>
-                    <p className={`font-semibold text-sm ${award.highlight ? 'text-gold-300' : 'text-white'}`}>
+                  <div className="relative z-10 mt-0.5">
+                    <p className={`font-bold text-base mb-1.5 ${award.highlight ? 'text-gold-300' : 'text-white group-hover:text-emerald-300 transition-colors'}`}>
                       {award.highlight && '⭐ '}{award.title}
                     </p>
-                    <p className="text-gray-400 text-xs mt-0.5 leading-relaxed">{award.body}</p>
+                    <p className="text-gray-300 text-sm leading-relaxed">{award.body}</p>
                   </div>
                 </div>
               ))}
@@ -129,7 +133,7 @@ export default function Achievements({ hideBanner }) {
                 <Medal size={22} className="text-emerald-400" />
                 Key Scientific Milestones
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {[
                   { label: 'APML Study (1997–2000)', detail: '11 patients successfully treated — proof of concept for Ayurvedic blood cancer treatment, sponsored by CCRAS at AIIMS New Delhi.' },
                   { label: 'First Clinical Research Unit (1999–2001)', detail: 'Established first of its kind unit at Regional Cancer Centre, Thiruvananthapuram, Kerala — evidence for APML, ALL, Chronic Pancreatitis and sub-mucous fibrosis.' },
@@ -137,27 +141,37 @@ export default function Achievements({ hideBanner }) {
                   { label: 'Pancreatitis Patent (2024)', detail: 'Indian Patent granted in 2024 for pioneering Ayurvedic treatment of Chronic Pancreatitis — a disease with no known cure worldwide.' },
                   { label: 'CRAV Guru (2021)', detail: 'Selected as CRAV Guru in Rasa Shastra by Rashtriya Ayurveda Vidyapeeth — highest recognition in the field.' },
                 ].map((m, i) => (
-                  <div key={i} className="p-4 rounded-xl bg-white/4 border border-white/8 hover:border-emerald-500/25 transition-colors duration-300">
-                    <p className="text-emerald-400 font-semibold text-sm mb-1">{m.label}</p>
-                    <p className="text-gray-400 text-sm leading-relaxed">{m.detail}</p>
+                  <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-500/40 hover:-translate-y-1 hover:shadow-glow transition-all duration-300 group shadow-lg relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-emerald-500/5 to-emerald-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                    <div className="relative z-10">
+                      <p className="text-emerald-400 font-bold text-base mb-3 flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> {m.label}
+                      </p>
+                      <p className="text-gray-300 text-sm leading-relaxed">{m.detail}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Events Organized */}
-            <div className="reveal-right glass-card-dark p-6">
-              <h3 className="font-serif text-xl font-bold text-white mb-5 flex items-center gap-3">
-                <Star size={18} className="text-gold-400" />
-                Events Organized
-              </h3>
-              <div className="relative pl-6">
-                {events.map((ev, i) => (
-                  <div key={i} className="timeline-item relative mb-4 last:mb-0">
-                    <span className="text-gold-400 font-bold text-xs font-display tracking-wider">{ev.year}</span>
-                    <p className="text-gray-300 text-sm leading-relaxed mt-0.5">{ev.event}</p>
+            <div className="reveal-right glass-card-dark p-8 relative overflow-hidden group hover:border-gold-500/40 hover:shadow-gold transition-all duration-500">
+              <div className="absolute inset-0 bg-gradient-to-r from-gold-500/0 via-gold-500/5 to-gold-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              <div className="relative z-10">
+                <h3 className="font-serif text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-gold-500/10 to-gold-900/30 flex items-center justify-center text-gold-400 group-hover:scale-110 group-hover:bg-gold-500/20 transition-all duration-300 shadow-inner border border-gold-500/20">
+                    <Star size={24} />
                   </div>
-                ))}
+                  Events Organized
+                </h3>
+                <div className="relative pl-6 mt-2">
+                  {events.map((ev, i) => (
+                    <div key={i} className="timeline-item relative mb-5 last:mb-0">
+                      <span className="text-gold-400 font-bold text-sm font-display tracking-wider block mb-1">{ev.year}</span>
+                      <p className="text-gray-300 text-sm leading-relaxed">{ev.event}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
