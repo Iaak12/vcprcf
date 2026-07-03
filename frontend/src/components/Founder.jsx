@@ -109,6 +109,7 @@ export default function Founder({ hideBanner }) {
                   <Globe size={14} /> researchgate.net/profile/Vaidya-Prakash
                 </a>
               </div>
+              </div>
             </div>
           </div>
 
