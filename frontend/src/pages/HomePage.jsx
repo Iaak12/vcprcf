@@ -1,14 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Award, BookOpen, FlaskConical, Heart, ArrowRight, ChevronRight, Star } from 'lucide-react';
+import { Award, BookOpen, FlaskConical, Heart, ArrowRight, ChevronRight, Star, Stethoscope, FileText, Plane, Landmark, Trophy, ShieldCheck, Microscope } from 'lucide-react';
 
 const stats = [
-  { value: '38+', label: 'Years of Clinical Practice', icon: '🏥' },
-  { value: '40+', label: 'Peer-reviewed Publications', icon: '📚' },
-  { value: '3', label: 'Patents Granted & Filed', icon: '🔏' },
-  { value: '2700+', label: 'Pancreatitis Patients', icon: '❤️' },
-  { value: '300+', label: 'International Trips', icon: '✈️' },
-  { value: '1988', label: 'Year Established', icon: '🏛️' },
+  { value: '38+', label: 'Years of Clinical Practice', icon: <Stethoscope size={28} className="text-emerald-400" /> },
+  { value: '40+', label: 'Peer-reviewed Publications', icon: <BookOpen size={28} className="text-gold-400" /> },
+  { value: '3', label: 'Patents', icon: <ShieldCheck size={28} className="text-emerald-400" /> },
+  { value: '1988', label: 'Year Established', icon: <Landmark size={28} className="text-gold-400" /> },
 ];
 
 const quickLinks = [
@@ -21,10 +19,9 @@ const quickLinks = [
 ];
 
 const highlights = [
-  { icon: '🏆', title: 'Padma Shri 1999', desc: 'Awarded by President of India for pioneering APML research' },
-  { icon: '🔬', title: 'US & European Patent', desc: 'First Ayurvedic formulation for Acute Promyelocytic Leukemia' },
-  { icon: '🧪', title: 'AIIMS Collaboration', desc: 'RCT proving Ayurvedic migraine protocol superior to modern medicine' },
-  { icon: '📜', title: 'Indian Patent 2024', desc: 'Pancreatitis treatment — disease with no known cure worldwide' },
+  { icon: <ShieldCheck size={40} className="text-emerald-400" />, title: 'US & European Patent', desc: 'First Ayurvedic formulation for Acute Promyelocytic Leukemia' },
+  { icon: <Microscope size={40} className="text-gold-400" />, title: 'AIIMS Collaboration', desc: 'RCT proving Ayurvedic migraine protocol superior to modern medicine' },
+  { icon: <FileText size={40} className="text-emerald-400" />, title: 'Indian Patent 2024', desc: 'Pancreatitis treatment — disease with no known cure worldwide' },
 ];
 
 export default function HomePage() {
@@ -73,11 +70,6 @@ export default function HomePage() {
         </div>
 
         <div className="container-max relative z-10 px-4 sm:px-6 lg:px-8 pt-28 pb-20 text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-emerald-900/50 border border-emerald-700/50 rounded-full px-5 py-2 mb-8 animate-fade-in">
-            <Award size={14} className="text-gold-400" />
-            <span className="text-emerald-300 text-xs font-display font-semibold tracking-widest uppercase">Padma Shri Awarded Research Foundation · Est. 1988</span>
-          </div>
 
           {/* Logo */}
           <div className="flex justify-center mb-8">
@@ -99,7 +91,7 @@ export default function HomePage() {
             <span className="shimmer-text font-semibold">VCPCRF</span> — Bridging the wisdom of Ayurveda with the rigour of modern science since 1988, under{' '}
             <span className="text-gold-300 font-semibold">Padma Shri Vaidya Balendu Prakash</span>.
           </p>
-          <p className="text-gray-500 text-sm mb-12 font-display tracking-wider uppercase">Rudrapur, Uttarakhand, India · Accredited SIRO · NGO Darpan: UA/2017/0115005</p>
+          <p className="text-gray-500 text-sm mb-12 font-display tracking-wider uppercase">Est. 1988 · NGO Darpan: UA/2017/0115005</p>
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
@@ -108,10 +100,10 @@ export default function HomePage() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {stats.map((stat, i) => (
-              <div key={i} className="glass-card p-4 hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-1 group">
-                <div className="text-2xl mb-1">{stat.icon}</div>
+              <div key={i} className="glass-card p-5 hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-center justify-center">
+                <div className="mb-3 group-hover:scale-110 transition-transform duration-300">{stat.icon}</div>
                 <div className="text-2xl font-bold gradient-text-gold font-display">{stat.value}</div>
                 <div className="text-gray-400 text-xs font-display uppercase tracking-wide leading-tight mt-1">{stat.label}</div>
               </div>
@@ -158,7 +150,7 @@ export default function HomePage() {
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white">Key <span className="gradient-text">Highlights</span></h2>
             <div className="divider-gold" />
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {highlights.map((h, i) => (
               <div key={i} className="glass-card p-6 text-center hover:border-gold-500/30 hover:-translate-y-2 transition-all duration-500 group">
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{h.icon}</div>
