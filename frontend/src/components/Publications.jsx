@@ -73,31 +73,34 @@ export default function Publications({ hideBanner }) {
         )}
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 reveal">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 reveal">
           {[
             { n: '40+', l: 'Total Publications' },
             { n: '3', l: 'Patents' },
             { n: '36', l: 'Journal Papers' },
             { n: '2024', l: 'Latest Patent' },
           ].map((s, i) => (
-            <div key={i} className="glass-card p-5 text-center hover:border-emerald-500/30 transition-all duration-300">
-              <div className="text-3xl font-bold gradient-text-gold font-display mb-1">{s.n}</div>
-              <div className="text-gray-400 text-xs font-display uppercase tracking-wider">{s.l}</div>
+            <div key={i} className="glass-card p-6 text-center hover:border-gold-500/40 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden shadow-lg hover:shadow-gold">
+              <div className="absolute inset-0 bg-gradient-to-r from-gold-500/0 via-gold-500/5 to-gold-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              <div className="relative z-10">
+                <div className="text-4xl font-bold gradient-text-gold font-display mb-2 group-hover:scale-110 transition-transform duration-300 inline-block">{s.n}</div>
+                <div className="text-gray-400 text-xs font-display uppercase tracking-widest font-medium">{s.l}</div>
+              </div>
             </div>
           ))}
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8 reveal">
-          <Filter size={16} className="text-gray-400 mt-2.5 mr-1" />
+        <div className="flex flex-wrap gap-3 mb-10 reveal items-center">
+          <Filter size={18} className="text-emerald-400 mr-1" />
           {tags.map(tag => (
             <button
               key={tag}
               onClick={() => { setActiveTag(tag); setShowAll(false); }}
-              className={`px-4 py-1.5 rounded-full text-xs font-display font-semibold tracking-wider uppercase transition-all duration-300 border ${
+              className={`px-5 py-2 rounded-full text-xs font-display font-bold tracking-wider uppercase transition-all duration-300 border shadow-sm ${
                 activeTag === tag
-                  ? 'bg-emerald-600 text-white border-emerald-500'
-                  : 'border-white/10 text-gray-400 hover:border-emerald-500/40 hover:text-emerald-400 bg-white/3'
+                  ? 'bg-emerald-500 text-forest-900 border-emerald-400 shadow-glow'
+                  : 'border-white/10 text-gray-400 hover:border-emerald-500/40 hover:text-emerald-300 bg-white/5 hover:bg-white/10'
               }`}
             >
               {tag}
@@ -106,29 +109,31 @@ export default function Publications({ hideBanner }) {
         </div>
 
         {/* Publications List */}
-        <div className="space-y-3 mb-8">
+        <div className="space-y-4 mb-10">
           {displayed.map((pub, i) => (
             <div
               key={i}
-              className="glass-card p-5 hover:border-emerald-500/30 transition-all duration-300 group reveal"
+              className="glass-card p-6 hover:border-emerald-500/40 hover:shadow-glow transition-all duration-300 group reveal relative overflow-hidden"
               style={{ animationDelay: `${i * 50}ms` }}
             >
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-emerald-900/50 flex items-center justify-center text-emerald-400 flex-shrink-0 group-hover:bg-emerald-800/50 transition-colors">
-                  <BookOpen size={16} />
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-emerald-500/5 to-emerald-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10 flex items-start gap-5">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/10 to-emerald-900/30 flex items-center justify-center text-emerald-400 flex-shrink-0 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300 shadow-inner border border-emerald-500/20">
+                  <BookOpen size={20} />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <span className="text-xs font-bold text-gold-400 font-display">{pub.year}</span>
-                    <span className={`text-xs px-2 py-0.5 rounded-full font-display font-semibold ${tagColors[pub.tag] || 'bg-gray-500/20 text-gray-300'}`}>
+                <div className="flex-1 min-w-0 pt-0.5">
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <span className="text-sm font-bold text-gold-400 font-display bg-gold-500/10 px-2 py-0.5 rounded-md border border-gold-500/20">{pub.year}</span>
+                    <span className={`text-xs px-2.5 py-1 rounded-full font-display font-bold border ${tagColors[pub.tag] ? `${tagColors[pub.tag]} border-current/20` : 'bg-gray-500/20 text-gray-300 border-gray-500/20'}`}>
                       {pub.tag}
                     </span>
                   </div>
-                  <p className="text-white text-sm font-medium leading-relaxed mb-1 group-hover:text-emerald-100 transition-colors">
+                  <p className="text-white text-base font-semibold leading-relaxed mb-2 group-hover:text-emerald-300 transition-colors">
                     {pub.title}
                   </p>
-                  <p className="text-gray-500 text-xs">{pub.authors}</p>
-                  <p className="text-emerald-600 text-xs mt-0.5 italic">{pub.journal}</p>
+                  <p className="text-gray-400 text-sm mb-1.5">{pub.authors}</p>
+                  <p className="text-emerald-500/80 text-sm italic font-medium">{pub.journal}</p>
                 </div>
               </div>
             </div>
@@ -147,22 +152,25 @@ export default function Publications({ hideBanner }) {
         )}
 
         {/* Patents */}
-        <div className="mt-16 reveal">
-          <h3 className="font-serif text-2xl font-bold text-white mb-6 text-center">Patents & <span className="gradient-text">Intellectual Property</span></h3>
-          <div className="grid md:grid-cols-3 gap-5">
+        <div className="mt-20 reveal">
+          <h3 className="font-serif text-3xl font-bold text-white mb-10 text-center">Patents & <span className="gradient-text">Intellectual Property</span></h3>
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               { title: 'US Patent', detail: 'Metal-based Ayurvedic formulation for Acute Promyelocytic Leukemia (APML)', status: 'Granted', color: 'emerald' },
               { title: 'European Patent', detail: 'Metal-based Ayurvedic formulation for Acute Promyelocytic Leukemia (APML)', status: 'Granted', color: 'emerald' },
               { title: 'Indian Patent (2024)', detail: 'Ayurvedic Treatment Protocol for Chronic Pancreatitis — PCT application no. 3373/DEL/2014', status: 'Granted', color: 'gold' },
             ].map((p, i) => (
-              <div key={i} className={`glass-card p-6 hover:border-${p.color}-500/40 transition-all duration-300 hover:-translate-y-1`}>
-                <div className={`text-xs font-bold px-3 py-1 rounded-full inline-block mb-3 ${
-                  p.color === 'gold' ? 'bg-gold-500/20 text-gold-300' : 'bg-emerald-500/20 text-emerald-300'
-                }`}>
-                  {p.status}
+              <div key={i} className={`glass-card p-8 hover:border-${p.color}-500/50 hover:shadow-${p.color === 'gold' ? 'gold' : 'glow'} transition-all duration-500 hover:-translate-y-2 group relative overflow-hidden`}>
+                <div className={`absolute -bottom-16 -right-16 w-32 h-32 bg-${p.color}-500/10 rounded-full blur-3xl group-hover:bg-${p.color}-500/20 transition-all duration-500`} />
+                <div className="relative z-10">
+                  <div className={`text-xs font-bold px-3 py-1.5 rounded-full inline-block mb-4 border ${
+                    p.color === 'gold' ? 'bg-gold-500/10 text-gold-400 border-gold-500/30' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+                  }`}>
+                    {p.status}
+                  </div>
+                  <h4 className="font-serif text-xl font-bold text-white mb-3 group-hover:text-white transition-colors">{p.title}</h4>
+                  <p className="text-gray-300 text-sm leading-relaxed">{p.detail}</p>
                 </div>
-                <h4 className="font-serif font-bold text-white mb-2">{p.title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed">{p.detail}</p>
               </div>
             ))}
           </div>
