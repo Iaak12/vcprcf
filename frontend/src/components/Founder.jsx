@@ -3,7 +3,7 @@ import { Award, MapPin, Globe, BookOpen, FlaskConical, GraduationCap, Star } fro
 
 const positions = [
   { period: '1985–present', role: 'Ayurvedic Physician (Private Practice)' },
-  { period: '1988–present', role: 'Founder & Medical Director, VCPCRF (Accredited SIRO)' },
+  { period: '1988–present', role: 'Founder & Medical Director, VCPCRF' },
   { period: '1997–2002', role: 'Honorary Physician to the President of India, Shri K.R. Narayanan' },
   { period: '1997–2007', role: 'Member, Central Council of Indian Medicine, Govt. of India' },
   { period: '1999–2001', role: 'Head, Clinical Research Unit, Regional Cancer Centre, Kerala' },
@@ -83,16 +83,8 @@ export default function Founder({ hideBanner }) {
 
               <div className="space-y-3 text-left">
                 <div className="flex items-start gap-3">
-                  <MapPin size={14} className="text-emerald-400 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300 text-sm">Prakash Villa, NH 74, Danpur Area, Rudrapur, Uttarakhand</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Globe size={14} className="text-emerald-400 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300 text-sm">300+ international trips across the globe</span>
-                </div>
-                <div className="flex items-start gap-3">
                   <BookOpen size={14} className="text-emerald-400 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300 text-sm">200+ lectures delivered across India</span>
+                  <span className="text-gray-300 text-sm">300+ lectures delivered across India</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <FlaskConical size={14} className="text-emerald-400 mt-1 flex-shrink-0" />

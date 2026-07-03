@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { Trophy, Star, Medal, Crown } from 'lucide-react';
 
 const awards = [
-  { year: '1999', title: 'Padma Shri', body: 'Awarded by H.E. President of India', highlight: true },
   { year: '1998', title: 'National Citizen Award–1996', body: 'Awarded by H.E. Sh. K.R. Narayanan, President of India' },
   { year: '2000', title: 'Best Ayurvedic Physician–98', body: 'Awarded by Hon\'ble Smt. Sheela Dixit, Chief Minister of Delhi' },
   { year: '2001', title: 'Pride of Doon', body: 'Awarded by Sh. Nityanand Swami, CM Uttarakhand & H.E. Sh. S.S. Barnala, Governor Uttarakhand' },

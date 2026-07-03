@@ -73,14 +73,6 @@ export default function Hero() {
       {/* Content */}
       <div className="container-max relative z-10 px-4 sm:px-6 lg:px-8 pt-28 pb-20">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-emerald-900/50 border border-emerald-700/50 rounded-full px-5 py-2 mb-8 animate-fade-in">
-            <Award size={14} className="text-gold-400" />
-            <span className="text-emerald-300 text-xs font-display font-semibold tracking-widest uppercase">
-              Padma Shri Awarded Research Foundation
-            </span>
-          </div>
-
           {/* Logo */}
           <div className="flex justify-center mb-8">
             <div className="relative">
@@ -113,7 +105,7 @@ export default function Hero() {
           </p>
 
           <p className="text-gray-400 text-sm mb-12 font-display tracking-wider uppercase">
-            Rudrapur, Uttarakhand, India &nbsp;·&nbsp; Est. 1988 &nbsp;·&nbsp; Accredited SIRO
+            Est. 1988
           </p>
 
           {/* CTA Buttons */}

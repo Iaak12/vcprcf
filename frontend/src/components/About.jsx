@@ -27,11 +27,8 @@ const pillars = [
 const highlights = [
   '30+ years of continuous research',
   '40+ peer-reviewed publications',
-  '3 patents granted and filed',
-  'Dedicated research laboratory since 1996',
+  '3 Patents',
   'Advanced XRD facility installed in 2025',
-  'Accredited SIRO by DSIR, Govt. of India',
-  '2700+ pancreatitis patients enrolled',
   'NGO Darpan Unique ID: UA/2017/0115005',
 ];
 

@@ -109,20 +109,21 @@ export default function Footer() {
 
           {/* Recognition & Links */}
           <div>
-            <h4 className="text-white font-semibold font-display text-sm uppercase tracking-widest mb-5">Recognition</h4>
+            <h4 className="text-white font-semibold font-display text-sm uppercase tracking-widest mb-5">Recognition & Links</h4>
             <div className="space-y-3">
-              <div className="p-3 rounded-xl bg-gold-500/10 border border-gold-500/20">
-                <p className="text-gold-300 font-bold text-sm">⭐ Padma Shri (1999)</p>
-                <p className="text-gray-500 text-xs mt-0.5">Awarded by President of India</p>
-              </div>
-              <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
-                <p className="text-emerald-300 font-bold text-xs">Accredited SIRO</p>
-                <p className="text-gray-500 text-xs mt-0.5">Dept. of Scientific Industrial Research, Govt. of India</p>
-              </div>
               <div className="p-3 rounded-xl bg-white/5 border border-white/10">
                 <p className="text-gray-400 text-xs font-display uppercase tracking-wider mb-1">NGO Darpan ID</p>
                 <p className="text-white text-xs font-mono">UA/2017/0115005</p>
               </div>
+              <a
+                href="https://www.vcpcrf.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-medium p-3 rounded-xl bg-white/3 hover:bg-white/5 border border-white/5 hover:border-emerald-500/20"
+              >
+                <ExternalLink size={14} />
+                www.vcpcrf.org
+              </a>
               <a
                 href="https://www.researchgate.net/profile/Vaidya-Prakash"
                 target="_blank"
