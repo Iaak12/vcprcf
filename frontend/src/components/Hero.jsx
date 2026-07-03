@@ -93,8 +93,8 @@ export default function Hero() {
           </div>
 
           {/* Title */}
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 leading-tight text-shadow-lg">
-            Vaidya Chandra Prakash
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight">
+            <span className="text-white text-shadow-lg">Vaidya Chandra Prakash</span>
             <span className="block gradient-text mt-2">Cancer Research Foundation</span>
           </h1>
 
@@ -104,7 +104,7 @@ export default function Hero() {
             <span className="text-gold-300 font-semibold">Padma Shri Vaidya Balendu Prakash</span>.
           </p>
 
-          <p className="text-gray-400 text-sm mb-12 font-display tracking-wider uppercase">
+          <p className="text-gray-300 text-sm mb-12 font-display tracking-wider uppercase">
             Est. 1988
           </p>
 
@@ -128,7 +128,7 @@ export default function Hero() {
                 <div className="text-3xl md:text-4xl font-bold gradient-text-gold font-display mb-1 group-hover:scale-110 transition-transform duration-300">
                   {stat.value}
                 </div>
-                <div className="text-gray-400 text-xs font-display uppercase tracking-wider">
+                <div className="text-gray-300 text-xs font-display uppercase tracking-wider">
                   {stat.label}
                 </div>
               </div>

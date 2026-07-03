@@ -9,7 +9,7 @@ export default function NotFoundPage() {
       <div className="relative z-10 text-center px-6">
         <div className="text-8xl font-bold gradient-text font-display mb-4">404</div>
         <h1 className="font-serif text-3xl font-bold text-white mb-4">Page Not Found</h1>
-        <p className="text-gray-400 mb-8 max-w-md mx-auto">
+        <p className="text-gray-300 mb-8 max-w-md mx-auto">
           The page you're looking for doesn't exist. Let's take you back to the VCPCRF homepage.
         </p>
         <Link to="/" className="btn-primary">Go Back Home</Link>

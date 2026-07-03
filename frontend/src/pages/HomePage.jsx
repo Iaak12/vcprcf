@@ -83,15 +83,15 @@ export default function HomePage() {
           </div>
 
           {/* Title */}
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 leading-tight text-shadow-lg">
-            Vaidya Chandra Prakash
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight">
+            <span className="text-white text-shadow-lg">Vaidya Chandra Prakash</span>
             <span className="block gradient-text mt-2">Cancer Research Foundation</span>
           </h1>
-          <p className="text-lg sm:text-xl text-gray-300 mb-3 font-light leading-relaxed max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-200 mb-3 font-light leading-relaxed max-w-3xl mx-auto">
             <span className="shimmer-text font-semibold">VCPCRF</span> — Bridging the wisdom of Ayurveda with the rigour of modern science since 1988, under{' '}
             <span className="text-gold-300 font-semibold">Padma Shri Vaidya Balendu Prakash</span>.
           </p>
-          <p className="text-gray-500 text-sm mb-12 font-display tracking-wider uppercase">Est. 1988 · NGO Darpan: UA/2017/0115005</p>
+          <p className="text-gray-300 text-sm mb-12 font-display tracking-wider uppercase">Est. 1988 · NGO Darpan: UA/2017/0115005</p>
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
@@ -105,7 +105,7 @@ export default function HomePage() {
               <div key={i} className="glass-card p-5 hover:border-emerald-500/30 transition-all duration-300 hover:-translate-y-1 group flex flex-col items-center justify-center">
                 <div className="mb-3 group-hover:scale-110 transition-transform duration-300">{stat.icon}</div>
                 <div className="text-2xl font-bold gradient-text-gold font-display">{stat.value}</div>
-                <div className="text-gray-400 text-xs font-display uppercase tracking-wide leading-tight mt-1">{stat.label}</div>
+                <div className="text-gray-200 text-xs font-display uppercase tracking-wide leading-tight mt-1">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -131,7 +131,7 @@ export default function HomePage() {
                   <h3 className="font-serif text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">{link.label}</h3>
                   <ArrowRight size={18} className={`transition-all duration-300 group-hover:translate-x-1 ${link.color === 'emerald' ? 'text-emerald-500' : 'text-gold-500'}`} />
                 </div>
-                <p className="text-gray-400 text-sm">{link.desc}</p>
+                <p className="text-gray-300 text-sm">{link.desc}</p>
                 <div className={`h-0.5 w-0 group-hover:w-full mt-4 transition-all duration-500 rounded-full bg-gradient-to-r ${
                   link.color === 'emerald' ? 'from-emerald-500 to-emerald-700' : 'from-gold-400 to-gold-600'
                 }`} />
@@ -155,7 +155,7 @@ export default function HomePage() {
               <div key={i} className="glass-card p-6 text-center hover:border-gold-500/30 hover:-translate-y-2 transition-all duration-500 group">
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{h.icon}</div>
                 <h3 className="font-semibold text-white mb-2 font-display">{h.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{h.desc}</p>
+                <p className="text-gray-300 text-sm leading-relaxed">{h.desc}</p>
               </div>
             ))}
           </div>
@@ -166,7 +166,7 @@ export default function HomePage() {
             <h3 className="font-serif text-2xl md:text-3xl font-bold text-white mb-4">
               Combining Tradition with Technology to <span className="gradient-text">Transform Healthcare</span>
             </h3>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+            <p className="text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
               From establishing proof of concept in APML to being recognized by ICMR for anaemia research, VCPCRF has consistently produced world-class scientific evidence for Ayurveda.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

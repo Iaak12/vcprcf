@@ -118,7 +118,7 @@ export default function Contact({ hideBanner }) {
                     {info.icon}
                   </div>
                   <div className="relative z-10 pt-1 flex-1">
-                    <p className="text-gray-400 text-xs font-display uppercase tracking-widest mb-1.5 font-medium">{info.label}</p>
+                    <p className="text-gray-300 text-xs font-display uppercase tracking-widest mb-1.5 font-medium">{info.label}</p>
                     {info.href ? (
                       <a href={info.href} className="text-white hover:text-emerald-300 transition-colors font-medium text-base">
                         {info.lines[0]}
@@ -149,7 +149,7 @@ export default function Contact({ hideBanner }) {
                     { label: 'Established', value: '1988, Dehradun, Uttarakhand' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4 py-3 border-b border-white/5 last:border-0 hover:bg-white/5 px-3 -mx-3 rounded-lg transition-colors">
-                      <span className="text-gray-400 text-xs font-display tracking-wider min-w-[140px] pt-0.5">{item.label}</span>
+                      <span className="text-gray-300 text-xs font-display tracking-wider min-w-[140px] pt-0.5">{item.label}</span>
                       <span className="text-emerald-300 text-sm font-medium leading-relaxed">{item.value}</span>
                     </div>
                   ))}
@@ -183,7 +183,7 @@ export default function Contact({ hideBanner }) {
                     <CheckCircle size={40} className="text-emerald-400" />
                   </div>
                   <h3 className="font-serif text-2xl font-bold text-white mb-3">Message Sent!</h3>
-                  <p className="text-gray-400 text-sm max-w-xs">
+                  <p className="text-gray-300 text-sm max-w-xs">
                     Thank you for reaching out. We will get back to you at the earliest.
                   </p>
                   <button
@@ -199,7 +199,7 @@ export default function Contact({ hideBanner }) {
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-gray-400 text-xs font-display uppercase tracking-wider mb-2">Full Name *</label>
+                        <label className="block text-gray-300 text-xs font-display uppercase tracking-wider mb-2">Full Name *</label>
                         <input
                           type="text"
                           required
@@ -210,7 +210,7 @@ export default function Contact({ hideBanner }) {
                         />
                       </div>
                       <div>
-                        <label className="block text-gray-400 text-xs font-display uppercase tracking-wider mb-2">Email *</label>
+                        <label className="block text-gray-300 text-xs font-display uppercase tracking-wider mb-2">Email *</label>
                         <input
                           type="email"
                           required
@@ -222,7 +222,7 @@ export default function Contact({ hideBanner }) {
                       </div>
                     </div>
                     <div>
-                      <label className="block text-gray-400 text-xs font-display uppercase tracking-wider mb-2">Subject *</label>
+                      <label className="block text-gray-300 text-xs font-display uppercase tracking-wider mb-2">Subject *</label>
                       <select
                         required
                         value={form.subject}
@@ -238,7 +238,7 @@ export default function Contact({ hideBanner }) {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-gray-400 text-xs font-display uppercase tracking-wider mb-2">Message *</label>
+                      <label className="block text-gray-300 text-xs font-display uppercase tracking-wider mb-2">Message *</label>
                       <textarea
                         required
                         rows={5}
@@ -275,7 +275,7 @@ export default function Contact({ hideBanner }) {
                       </div>
                       <div className="flex flex-col items-center">
                         <ShieldCheck size={28} className="text-emerald-500 opacity-70" />
-                        <span className="text-gray-600 text-[9px] leading-tight text-center mt-0.5">reCAPTCHA<br/>Privacy - Terms</span>
+                        <span className="text-gray-300 text-[9px] leading-tight text-center mt-0.5">reCAPTCHA<br/>Privacy - Terms</span>
                       </div>
                     </div>
                     {error && (

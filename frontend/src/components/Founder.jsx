@@ -79,7 +79,7 @@ export default function Founder({ hideBanner }) {
 
               <h3 className="font-serif text-3xl font-bold text-white mb-2">Vaidya Balendu Prakash</h3>
               <p className="text-emerald-400 text-sm font-display tracking-wider uppercase mb-2">Padma Shri (1999)</p>
-              <p className="text-gray-400 text-sm mb-6">Date of Birth: 14 March 1959</p>
+              <p className="text-gray-300 text-sm mb-6">Date of Birth: 14 March 1959</p>
 
               <div className="h-px bg-gradient-to-r from-transparent via-gold-500/40 to-transparent mb-6" />
 

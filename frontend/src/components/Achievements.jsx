@@ -84,7 +84,7 @@ export default function Achievements({ hideBanner }) {
                   {a.icon}
                 </div>
                 <h4 className="font-semibold text-white mb-3 font-display text-base">{a.label}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed">{a.desc}</p>
+                <p className="text-gray-300 text-sm leading-relaxed">{a.desc}</p>
               </div>
             </div>
           ))}

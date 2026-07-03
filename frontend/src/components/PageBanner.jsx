@@ -15,7 +15,7 @@ export default function PageBanner({ subtitle, title, highlight, description, br
 
       <div className="container-max px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         {/* Breadcrumb */}
-        <div className="flex items-center justify-center gap-2 mb-6 text-xs text-gray-500 font-display tracking-wider">
+        <div className="flex items-center justify-center gap-2 mb-6 text-xs text-gray-300 font-display tracking-wider">
           <Link to="/" className="flex items-center gap-1 hover:text-emerald-400 transition-colors">
             <Home size={12} />
             Home

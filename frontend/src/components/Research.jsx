@@ -180,12 +180,12 @@ export default function Research({ hideBanner }) {
                   </div>
                 </div>
 
-                <p className="text-xs text-gray-400 font-display tracking-widest uppercase mb-2 font-medium">{area.tag}</p>
+                <p className="text-xs text-gray-300 font-display tracking-widest uppercase mb-2 font-medium">{area.tag}</p>
                 <h3 className="font-serif text-2xl font-bold text-white mb-3">{area.title}</h3>
                 <p className="text-gray-300 text-sm leading-relaxed mb-5">{area.short}</p>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500 font-display">{area.period}</span>
+                  <span className="text-xs text-gray-300 font-display">{area.period}</span>
                   <button className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 ${
                     area.color === 'emerald' ? 'text-emerald-400' : 'text-gold-400'
                   }`}>

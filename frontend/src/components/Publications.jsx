@@ -84,7 +84,7 @@ export default function Publications({ hideBanner }) {
               <div className="absolute inset-0 bg-gradient-to-r from-gold-500/0 via-gold-500/5 to-gold-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
               <div className="relative z-10">
                 <div className="text-4xl font-bold gradient-text-gold font-display mb-2 group-hover:scale-110 transition-transform duration-300 inline-block">{s.n}</div>
-                <div className="text-gray-400 text-xs font-display uppercase tracking-widest font-medium">{s.l}</div>
+                <div className="text-gray-300 text-xs font-display uppercase tracking-widest font-medium">{s.l}</div>
               </div>
             </div>
           ))}
@@ -100,7 +100,7 @@ export default function Publications({ hideBanner }) {
               className={`px-5 py-2 rounded-full text-xs font-display font-bold tracking-wider uppercase transition-all duration-300 border shadow-sm ${
                 activeTag === tag
                   ? 'bg-emerald-500 text-forest-900 border-emerald-400 shadow-glow'
-                  : 'border-white/10 text-gray-400 hover:border-emerald-500/40 hover:text-emerald-300 bg-white/5 hover:bg-white/10'
+                  : 'border-white/10 text-gray-300 hover:border-emerald-500/40 hover:text-emerald-300 bg-white/5 hover:bg-white/10'
               }`}
             >
               {tag}
@@ -132,7 +132,7 @@ export default function Publications({ hideBanner }) {
                   <p className="text-white text-base font-semibold leading-relaxed mb-2 group-hover:text-emerald-300 transition-colors">
                     {pub.title}
                   </p>
-                  <p className="text-gray-400 text-sm mb-1.5">{pub.authors}</p>
+                  <p className="text-gray-300 text-sm mb-1.5">{pub.authors}</p>
                   <p className="text-emerald-500/80 text-sm italic font-medium">{pub.journal}</p>
                 </div>
               </div>

@@ -52,19 +52,19 @@ export default function Footer() {
                 <p className="text-emerald-500 text-xs font-display tracking-widest">Est. 1988</p>
               </div>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-5">
+            <p className="text-gray-300 text-sm leading-relaxed mb-5">
               Vaidya Chandra Prakash Cancer Research Foundation — Bridging Ayurvedic tradition with modern scientific evidence for three decades.
             </p>
             <div className="space-y-2">
               <div className="flex items-start gap-2">
                 <MapPin size={13} className="text-emerald-500 mt-0.5 flex-shrink-0" />
-                <p className="text-gray-500 text-xs leading-relaxed">Prakash Villa, NH 74, Danpur Area, Rudrapur, Uttarakhand – 263153</p>
+                <p className="text-gray-300 text-xs leading-relaxed">Prakash Villa, NH 74, Danpur Area, Rudrapur, Uttarakhand – 263153</p>
               </div>
-              <a href="tel:+919837028544" className="flex items-center gap-2 text-gray-500 hover:text-emerald-400 transition-colors text-xs">
+              <a href="tel:+919837028544" className="flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-colors text-xs">
                 <Phone size={13} className="text-emerald-500" />
                 +91 98370 28544
               </a>
-              <a href="mailto:vcpcrf@gmail.com" className="flex items-center gap-2 text-gray-500 hover:text-emerald-400 transition-colors text-xs">
+              <a href="mailto:vcpcrf@gmail.com" className="flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-colors text-xs">
                 <Mail size={13} className="text-emerald-500" />
                 vcpcrf@gmail.com
               </a>
@@ -79,7 +79,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-gray-400 hover:text-emerald-400 transition-colors text-sm flex items-center gap-1.5 group"
+                    className="text-gray-300 hover:text-emerald-400 transition-colors text-sm flex items-center gap-1.5 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-emerald-700 group-hover:bg-emerald-400 transition-colors" />
                     {link.label}
@@ -97,7 +97,7 @@ export default function Footer() {
                 <li key={item}>
                   <Link
                     to="/research"
-                    className="text-gray-400 hover:text-emerald-400 transition-colors text-sm flex items-center gap-1.5 group"
+                    className="text-gray-300 hover:text-emerald-400 transition-colors text-sm flex items-center gap-1.5 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-gold-700 group-hover:bg-gold-400 transition-colors" />
                     {item}
@@ -112,7 +112,7 @@ export default function Footer() {
             <h4 className="text-white font-semibold font-display text-sm uppercase tracking-widest mb-5">Recognition & Links</h4>
             <div className="space-y-3">
               <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-gray-400 text-xs font-display uppercase tracking-wider mb-1">NGO Darpan ID</p>
+                <p className="text-gray-300 text-xs font-display uppercase tracking-wider mb-1">NGO Darpan ID</p>
                 <p className="text-white text-xs font-mono">UA/2017/0115005</p>
               </div>
               <a
@@ -142,14 +142,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-600 text-xs text-center md:text-left">
+          <p className="text-gray-300 text-xs text-center md:text-left">
             © {new Date().getFullYear()} Vaidya Chandra Prakash Cancer Research Foundation. All rights reserved.
             <span className="mx-2">·</span>
             Reg. No. 6759/4
             <span className="mx-2">·</span>
             PAN: AAATV1805G
           </p>
-          <p className="text-gray-600 text-xs flex items-center gap-1.5">
+          <p className="text-gray-300 text-xs flex items-center gap-1.5">
             Made with <Heart size={12} className="text-emerald-500" fill="currentColor" /> for Ayurvedic Science
           </p>
         </div>
