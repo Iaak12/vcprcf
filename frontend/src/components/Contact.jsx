@@ -29,7 +29,7 @@ const contactInfo = [
 
 export default function Contact({ hideBanner }) {
   const ref = useRef(null);
-  const [form, setForm] = useState({ name: '', email: '', mobile: '', subject: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [captchaVerified, setCaptchaVerified] = useState(false);
@@ -68,7 +68,6 @@ export default function Contact({ hideBanner }) {
           access_key: 'YOUR_WEB3FORMS_ACCESS_KEY',
           name: form.name,
           email: form.email,
-          mobile: form.mobile,
           subject: `VCPCRF Contact: ${form.subject}`,
           message: form.message,
           from_name: 'VCPCRF Website',
@@ -78,7 +77,7 @@ export default function Contact({ hideBanner }) {
       if (result.success) {
         setSubmitted(true);
         setCaptchaVerified(false);
-        setForm({ name: '', email: '', mobile: '', subject: '', message: '' });
+        setForm({ name: '', email: '', subject: '', message: '' });
       } else {
         setError('Something went wrong. Please try again.');
       }
@@ -188,7 +187,7 @@ export default function Contact({ hideBanner }) {
                     Thank you for reaching out. We will get back to you at the earliest.
                   </p>
                   <button
-                    onClick={() => { setSubmitted(false); setForm({ name: '', email: '', mobile: '', subject: '', message: '' }); }}
+                    onClick={() => { setSubmitted(false); setForm({ name: '', email: '', subject: '', message: '' }); }}
                     className="btn-primary mt-8 text-sm py-2.5"
                   >
                     Send Another Message
@@ -221,17 +220,6 @@ export default function Contact({ hideBanner }) {
                           className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-emerald-500/50 focus:bg-white/8 transition-all duration-300"
                         />
                       </div>
-                    </div>
-                    <div>
-                      <label className="block text-gray-300 text-xs font-display uppercase tracking-wider mb-2">Mobile Number *</label>
-                      <input
-                        type="tel"
-                        required
-                        value={form.mobile}
-                        onChange={e => setForm({ ...form, mobile: e.target.value })}
-                        placeholder="+91 98370 28544"
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-emerald-500/50 focus:bg-white/8 transition-all duration-300"
-                      />
                     </div>
                     <div>
                       <label className="block text-gray-300 text-xs font-display uppercase tracking-wider mb-2">Subject *</label>
